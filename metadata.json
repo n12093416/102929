@@ -1,0 +1,6 @@
+{
+  "name": "Vib-Ribbon",
+  "description": "Mobile rhythm game that analyzes audio waveforms and procedural obstacles like classic Vib-Ribbon",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
