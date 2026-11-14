@@ -1,6 +1,6 @@
 {
-  "name": "Vib-Ribbon",
-  "description": "Mobile rhythm game that analyzes audio waveforms and procedural obstacles like classic Vib-Ribbon",
+  "name": "Gemini Studio",
+  "description": "Mobile AI workspace powered by Firebase AI Logic (8 Gemini capabilities), App Check, Google Sign-In via Firebase Auth, and Cloud Firestore sync with independent directives and inter-AI communication",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

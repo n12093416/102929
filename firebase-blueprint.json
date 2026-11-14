@@ -1,0 +1,119 @@
+{
+  "entities": {
+    "WorkspaceRecord": {
+      "title": "WorkspaceRecord",
+      "description": "Saved Gemini AI execution output or multi-AI collaboration transcript owned by an authenticated user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the owning user."
+        },
+        "toolId": {
+          "type": "string",
+          "description": "Identifier of the Gemini AI capability or AI_COLLAB_SESSION."
+        },
+        "toolTitle": {
+          "type": "string",
+          "description": "Human-readable title of the tool."
+        },
+        "modelEndpoint": {
+          "type": "string",
+          "description": "Model and capability label used for the generation."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Input prompt or discussion topic submitted by the user."
+        },
+        "responseText": {
+          "type": "string",
+          "description": "Generated AI response or collaboration transcript."
+        },
+        "metadataSummary": {
+          "type": "string",
+          "description": "Optional summary such as token usage or message count."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp() upon creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp() upon write."
+        }
+      },
+      "required": [
+        "userId",
+        "toolId",
+        "toolTitle",
+        "modelEndpoint",
+        "prompt",
+        "responseText",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "DirectiveConfig": {
+      "title": "DirectiveConfig",
+      "description": "Independent Common Directive and Per-AI Individual Directives configuration for a user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the owning user."
+        },
+        "commonDirective": {
+          "type": "string",
+          "description": "Global directive applied independently across all participating AIs."
+        },
+        "useCommonDirective": {
+          "type": "boolean",
+          "description": "Toggle enabling or disabling the global common directive."
+        },
+        "individualDirectives": {
+          "type": "object",
+          "description": "Map of GeminiToolType name to per-AI individual directive text."
+        },
+        "individualEnabledMap": {
+          "type": "object",
+          "description": "Map of GeminiToolType name to boolean toggle for each AI individual directive."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp() upon creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp() upon write."
+        }
+      },
+      "required": [
+        "userId",
+        "commonDirective",
+        "useCommonDirective",
+        "individualDirectives",
+        "individualEnabledMap",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/workspaceRecords/{recordId}": {
+      "schema": {
+        "$ref": "#/entities/WorkspaceRecord"
+      },
+      "description": "User-owned collection of saved AI execution outputs and multi-AI collaboration transcripts."
+    },
+    "/users/{userId}/directiveConfigs/{configId}": {
+      "schema": {
+        "$ref": "#/entities/DirectiveConfig"
+      },
+      "description": "User-owned configuration storing independent Common and Per-AI Individual directives."
+    }
+  }
+}

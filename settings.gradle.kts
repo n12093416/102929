@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Vib-Ribbon"
+rootProject.name = "Gemini Studio"
 
 include(":app")

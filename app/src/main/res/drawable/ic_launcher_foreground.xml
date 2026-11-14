@@ -3,6 +3,6 @@
     <item
         android:width="66dp"
         android:height="66dp"
-        android:drawable="@drawable/ic_vibribbon_logo_1794467116938"
+        android:drawable="@drawable/ic_ai_studio_logo_1794568397194"
         android:gravity="center" />
 </layer-list>

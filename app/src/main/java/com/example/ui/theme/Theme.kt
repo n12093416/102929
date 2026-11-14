@@ -1,52 +1,51 @@
 package com.example.ui.theme
 
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 
-private val DarkColorScheme =
-  darkColorScheme(primary = Purple80, secondary = PurpleGrey80, tertiary = Pink80)
+private val StudioDarkColorScheme = darkColorScheme(
+    primary = CyanPrimary,
+    onPrimary = Color(0xFF04131E),
+    primaryContainer = CyanContainer,
+    onPrimaryContainer = CyanPrimary,
+    secondary = AmberSecondary,
+    onSecondary = Color(0xFF1E1403),
+    secondaryContainer = AmberContainer,
+    onSecondaryContainer = AmberSecondary,
+    tertiary = EmeraldTertiary,
+    onTertiary = Color(0xFF041C13),
+    tertiaryContainer = EmeraldContainer,
+    onTertiaryContainer = EmeraldTertiary,
+    background = StudioBackground,
+    onBackground = TextPrimary,
+    surface = StudioSurface,
+    onSurface = TextPrimary,
+    surfaceVariant = StudioSurfaceVariant,
+    onSurfaceVariant = TextSecondary,
+    outline = StudioBorder,
+    error = CoralError,
+    onError = Color(0xFF280808)
+)
 
-private val LightColorScheme =
-  lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-  )
+val StudioShapes = Shapes(
+    small = RoundedCornerShape(10.dp),
+    medium = RoundedCornerShape(14.dp),
+    large = RoundedCornerShape(20.dp)
+)
 
 @Composable
-fun MyApplicationTheme(
-  darkTheme: Boolean = isSystemInDarkTheme(),
-  // Dynamic color is available on Android 12+
-  dynamicColor: Boolean = true,
-  content: @Composable () -> Unit,
+fun GeminiStudioTheme(
+    content: @Composable () -> Unit
 ) {
-  val colorScheme =
-    when {
-      dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-        val context = LocalContext.current
-        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-      }
-
-      darkTheme -> DarkColorScheme
-      else -> LightColorScheme
-    }
-
-  MaterialTheme(colorScheme = colorScheme, typography = Typography, content = content)
+    MaterialTheme(
+        colorScheme = StudioDarkColorScheme,
+        typography = StudioTypography,
+        shapes = StudioShapes,
+        content = content
+    )
 }

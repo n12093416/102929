@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="firestore_database_id" translatable="false">ai-studio-android-vibribbo-ab70e453-175c-4e05-8e61-f50f5bc74cea</string>
+    <string name="recaptcha_site_key" translatable="false">6LcTGx4uAAAAAKPmv32y2Si_zqT8pspRYKFw13zw</string>
+</resources>
